@@ -9,4 +9,25 @@ async function fetchWeather (city) {
     clouds: weatherData.clouds.all,
     wind: weatherData.wind.speed,
   };
+  enterValues(result);
+}
+
+function capitalize(s)
+{
+    return s[0].toUpperCase() + s.slice(1);
+}
+
+function enterValues (object) {
+  const city = document.querySelector('.city');
+  const weather = document.querySelector('.weather');
+  const temperature = document.querySelector('.temperature');
+  const humidity = document.querySelector('.humidity');
+  const wind = document.querySelector('.wind');
+  const clouds = document.querySelector('.clouds');
+  city.textContent = object.city;
+  weather.textContent = capitalize(object.description);
+  temperature.textContent = `Temp: ${object.temp} °C`;
+  humidity.textContent = `Humidity: ${object.humidity} %`;
+  wind.textContent = `Wind: ${object.wind} m/s`;
+  clouds.textContent = `Clouds: ${object.clouds} %`;
 }
