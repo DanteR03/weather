@@ -38,3 +38,11 @@ function addIcon (id) {
   const icon = document.querySelector('.weather-icon');
   icon.setAttribute('src', `https://openweathermap.org/img/wn/${id}@2x.png`)
 }
+
+function searchCity () {
+  const searchbar = document.querySelector(".search-input");
+  fetchWeather(searchbar.value);
+}
+
+const searchButton = document.querySelector('.search-button');
+searchButton.addEventListener('click', searchCity);
