@@ -10,6 +10,8 @@ async function fetchWeather (city) {
     wind: weatherData.wind.speed,
   };
   enterValues(result);
+  addIcon(weatherData.weather[0].icon);
+  console.log(weatherData);
 }
 
 function capitalize(s)
@@ -30,4 +32,9 @@ function enterValues (object) {
   humidity.textContent = `Humidity: ${object.humidity} %`;
   wind.textContent = `Wind: ${object.wind} m/s`;
   clouds.textContent = `Clouds: ${object.clouds} %`;
+}
+
+function addIcon (id) {
+  const icon = document.querySelector('.weather-icon');
+  icon.setAttribute('src', `https://openweathermap.org/img/wn/${id}@2x.png`)
 }
